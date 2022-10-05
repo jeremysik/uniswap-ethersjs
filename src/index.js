@@ -12,8 +12,8 @@ import * as ethers from 'ethers';
 const config = {
     chainId               : 5, // Goerli testnet
     uniswapContractAddress: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', // Uniswap router contract
-    provider              : '<fill me in>',
-    privateKey            : '<fill me in>'
+    provider              : 'https://goerli.infura.io/v3/4311f7f0483f4251922576fcdf008335',
+    privateKey            : '0xa6f9a4c60f20a7f99f98afcaafe411978f94d54396d0a8843d287dde080e8c4b' // https://punkwallet.io/pk#0xa6f9a4c60f20a7f99f98afcaafe411978f94d54396d0a8843d287dde080e8c4b
 }
 
 async function approve(token, amount) {
@@ -88,7 +88,7 @@ async function swap(fromToken, toToken, amount) {
     //     }
     // );
 
-    console.log(`\nSwapping ${ethers.utils.formatUnits(amount, fromToken.decimals)} to ${toToken.symbol}...`);
+    console.log(`\nSwapping ${ethers.utils.formatUnits(amount, fromToken.decimals)} ${fromToken.symbol} to ${toToken.symbol}...`);
 
     const tx = await uniswapContract.swapExactTokensForTokens(
         amount,
@@ -114,9 +114,9 @@ async function swap(fromToken, toToken, amount) {
 async function main() {
     const DAI    = new Token(config.chainId, '0x11fE4B6AE13d2a6055C8D9cF65c55bac32B5d844', 18, 'DAI');
     const WETH   = new Token(config.chainId, '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6', 18, 'WETH');
-    const amount = ethers.utils.parseUnits('1', 18); // DAI has 18 decimals
+    const amount = ethers.utils.parseUnits('0.01', 18); // DAI has 18 decimals
 
-    // If you are swapping a non-native token you must approve the contract to spend your tokens first.
+    // If you are swapping a non-native token you must approve the contract to spend your tokens first (not required for ETH).
     // You can approve the exact amount you want to swap or approve a larger amount so you don't have to approve before
     // every swap.
     await approve(
