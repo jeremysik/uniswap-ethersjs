@@ -1,0 +1,25 @@
+{
+  "name": "uniswap-ethersjs",
+  "version": "1.0.0",
+  "description": "Uniswap SDK + Ethers.js Example",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremysik/uniswap-ethersjs.git"
+  },
+  "type": "module",
+  "author": "Jeremy Sik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeremysik/uniswap-ethersjs/issues"
+  },
+  "homepage": "https://github.com/jeremysik/uniswap-ethersjs#readme",
+  "dependencies": {
+    "@uniswap/sdk": "^3.0.3",
+    "ethers": "^5.7.1"
+  }
+}
